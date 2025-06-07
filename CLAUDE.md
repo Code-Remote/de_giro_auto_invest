@@ -59,7 +59,7 @@ Create a `.env` file with:
 - **whatsapp_service.py**: Alternative notification channel (not currently used in main flow)
 
 ### Key Implementation Details
-- Investment target: Vanguard S&P 500 ETF (VUAA) - DEGIRO ID: 16954338
+- Investment target: iShares Core MSCI World UCITS ETF (IWDA) - DEGIRO ID: 846772
 - Only buys whole shares (uses floor calculation)
 - Maintains €100 cash buffer for fees
 - Handles DEGIRO 2FA automatically using TOTP

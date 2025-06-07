@@ -7,7 +7,10 @@ from dotenv import load_dotenv
 INVESTMENT_RULES = [
     {
         # Vanguard S&P 500 VUAA
-        'degiro_id': '16954338',
+        # 'degiro_id': '16954338',
+
+        # iShares Core MSCI World UCITS ETF (IWDA)
+        'degiro_id': '846772',
         'percentage': 1,
     },
 ]
