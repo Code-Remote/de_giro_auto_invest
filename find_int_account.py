@@ -12,13 +12,16 @@ load_dotenv()
 logging.basicConfig(level=logging.DEBUG)
 
 # Build credentials from environment variables
-credentials = build_credentials(
-    override={
-        "username": os.environ.get("DEGIRO_USERNAME"),
-        "password": os.environ.get("DEGIRO_PASSWORD"),
-        "totp_secret_key": os.environ.get("DEGIRO_2FA_SECRET_KEY"),  # For 2FA if enabled
-    },
-)
+credentials_dict = {
+    "username": os.environ.get("DEGIRO_USERNAME"),
+    "password": os.environ.get("DEGIRO_PASSWORD"),
+}
+
+# Only add 2FA if it's provided
+if os.environ.get("DEGIRO_2FA_SECRET_KEY"):
+    credentials_dict["totp_secret_key"] = os.environ.get("DEGIRO_2FA_SECRET_KEY")
+
+credentials = build_credentials(override=credentials_dict)
 
 trading_api = TradingAPI(credentials=credentials)
 trading_api.connect()
